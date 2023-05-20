@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Work Sans';
+    src: url('../assets/fonts/work-sans/WorkSans-Bold.woff') format('woff'),
+         url('../assets/fonts/work-sans/WorkSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Work Sans';
+    src: url('../assets/fonts/work-sans/WorkSans-SemiBold.woff') format('woff'),
+         url('../assets/fonts/work-sans/WorkSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Work Sans';
+    src: url('../assets/fonts/work-sans/WorkSans-Medium.woff') format('woff'),
+         url('../assets/fonts/work-sans/WorkSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Work Sans';
+    src: url('../assets/fonts/work-sans/WorkSans-Regular.woff') format('woff'),
+         url('../assets/fonts/work-sans/WorkSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Avenir Next';
+    src: url('../assets/fonts/avenir-next/avenir-next-bold.woff') format('woff'),
+         url('../assets/fonts/avenir-next/avenir-next-bold.ttf') format('truetype');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Avenir Next';
+    src: url('../assets/fonts/avenir-next/avenir-next-demi.woff') format('woff'),
+         url('../assets/fonts/avenir-next/avenir-next-demi.ttf') format('truetype');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Avenir Next';
+    src: url('../assets/fonts/avenir-next/avenir-next-regular.woff') format('woff'),
+         url('../assets/fonts/avenir-next/avenir-next-regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'SF Compact Text';
+    src: url('../assets/fonts/sf-compact-text/SFCompactTextRegular.woff') format('woff'),
+         url('../assets/fonts/sf-compact-text/SFCompactTextRegular.woff2') format('woff2'),
+         url('../assets/fonts/sf-compact-text/SFCompactTextRegular.ttf') format('truetype');
+    font-weight: 400;
+}
+  
+$primary-font: 'Work Sans', sans-serif;
+$secondary-font: 'Avenir Next', $primary-font, sans-serif;
+$tertiary-font: 'SF Compact Text', $secondary-font, $primary-font, sans-serif;
