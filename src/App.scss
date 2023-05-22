@@ -1,2 +1,9 @@
-@import '/src/styles/variables';
 @import '/src/styles/base';
+@import '/src/styles/reset';
+
+@import '/src/components/layouts/LoginLayout/loginLayout';
+@import '/src/components/interface/Input/input';
+@import '/src/components/interface/Button/button';
+@import '/src/components/interface/LoadingDots/loadingDots';
+
+@import '/src/pages/Login/login';
