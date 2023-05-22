@@ -7,7 +7,6 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
   placeholder?: string
   icon?: string | ReactNode
-  iconType?: 'text' | 'node'
   type?: string
   border?: 'base' | 'lg'
   onChange?: (...args: any[]) => any
@@ -18,7 +17,6 @@ const Input: React.FC<InputProps> = forwardRef((props, ref) => {
     className,
     placeholder,
     icon = null,
-    iconType,
     type,
     border = 'base',
     onChange,
@@ -62,7 +60,6 @@ Input.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
   icon: PropTypes.any,
-  iconType: PropTypes.oneOf(['text', 'node']),
   type: PropTypes.string,
   border: PropTypes.oneOf(['base', 'lg']),
   onChange: PropTypes.func,

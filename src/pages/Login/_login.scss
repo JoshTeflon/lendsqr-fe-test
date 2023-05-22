@@ -3,17 +3,18 @@
 
 .login {
     width: 100%;
+    padding-bottom: 4rem;
 
     @media screen and (min-width: 1024px) {
         min-height: 100vh;
         display: flex;
+        padding-bottom: 0;
     }
 
     &-image-wrapper {
         width: 100%;
         display: flex;
         flex-direction: column;
-        // background-color: #fcfcfc;
         padding: 2rem;
 
         @media screen and (min-width: 1024px) {
@@ -53,15 +54,23 @@
     &-form {
         width: 100%;
         margin-top: 0.5rem;
-        padding: 0 2rem;
+        padding: 1rem 2rem;
         display: flex;
         align-items: center;
         flex-direction: column;
+        background-color: v.$white;
+        box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
         
         @media screen and (min-width: 1024px) {
             width: 48.5%;
-            margin: -2rem 0 0 4.25rem;
+            margin-top: -2rem;
+            padding: 0 0 0 4.25rem;
             justify-content: center;
+        }
+
+        @media screen and (min-width: 1280px) {
+            margin-top: -2.5rem;
+            padding: 0 0 0 6.25rem;
         }
 
         &-caption {
@@ -93,10 +102,18 @@
             width: 100%;
             margin-top: 2.25rem;
             @include m.centerElement;
+
+            @media screen and (min-width: 768px) {
+                width: 70%;
+            }
             
             @media screen and (min-width: 1024px) {
-                width: 80%;
+                width: 85%;
                 margin: 3.25rem auto 0 0;
+            }
+
+            @media screen and (min-width: 1280px) {
+                width: 75%;
             }
 
             form {
@@ -110,6 +127,15 @@
                     text-transform: uppercase;
                     line-height: 16px;
                     letter-spacing: 0.1em;
+                }
+
+                .forgot-password-button {
+                    color: v.$secondary-color;
+                    font-size: v.$font-xs;
+                    font-weight: 600;
+                    line-height: 16px;
+                    letter-spacing: 0.1em;
+                    margin-bottom: 1.875rem;
                 }
             }
         }

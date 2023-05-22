@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LoginLayout } from '../../components/layouts'
 import { Logo } from '../../components/global'
 import PabloSignIn from '../../assets/images/pablo-sign-in.png'
-import { Input } from '../../components/interface'
+import { Button, Input } from '../../components/interface'
 
 const Login: React.FC = () => {
+    const [displayPassword, setDisplayPassword] = useState(false)
 
     return (
         <LoginLayout>
@@ -33,16 +34,30 @@ const Login: React.FC = () => {
                                 <Input
                                     placeholder='Password'
                                     border='lg'
-                                    type='password'
+                                    type={displayPassword ? 'text' : 'password'}
                                     icon={
-                                        <span
+                                        <Button
+                                            variant='naked'
                                             className='password-input-icon'
+                                            onClick={() => setDisplayPassword(!displayPassword)}
                                         >
                                             show
-                                        </span>
+                                        </Button>
                                     }
                                 />
                             </div>
+                            <Button
+                                variant='naked'
+                                className='forgot-password-button'
+                            >
+                                FORGOT PASSWORD?
+                            </Button>
+                            <Button
+                                type='submit'
+                                size='lg'
+                            >
+                                log in
+                            </Button>
                         </form>
                     </div>
                 </div>
