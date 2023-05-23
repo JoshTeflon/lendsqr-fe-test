@@ -1,6 +1,7 @@
 @import '/src/styles/base';
 @import '/src/styles/reset';
 
+@import '/src/components/global/DashboardHeader/dashboardHeader';
 @import '/src/components/layouts/LoginLayout/loginLayout';
 @import '/src/components/interface/Input/input';
 @import '/src/components/interface/Button/button';

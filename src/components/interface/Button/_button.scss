@@ -4,18 +4,18 @@ button {
     width: 100%;
     font-size: v.$font-sm;
     outline: none;
-    font-family: inherit;
+    font-family: v.$primary-font;
     cursor: pointer;
 
     &:hover {
         opacity: 0.9;
     }
     &:focus {
-        opacity: 0.8;
         outline: none;
+        opacity: 0.8;
     }
     &:active {
-        transform: translateY(-0.125rem);
+        transform: translateY(-1px);
     }
 }
 
@@ -46,7 +46,7 @@ button.naked {
 button.link {
     color: inherit;
     background-color: transparent;
-    font-size: v.$font-base;
+    font-family: v.$link-font;
     font-weight: 400;
     padding: 0;
     border: none;
