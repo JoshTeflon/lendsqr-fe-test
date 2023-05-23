@@ -1,6 +1,7 @@
 $work-sans-font-path: '../assets/fonts/work-sans';
 $avenir-next-font-path: '../assets/fonts/avenir-next';
 $sf-compact-font-path: '../assets/fonts/sf-compact-text';
+$roboto-font-path: '../assets/fonts/roboto';
 
 @font-face {
     font-family: 'Work Sans';
@@ -54,6 +55,14 @@ $sf-compact-font-path: '../assets/fonts/sf-compact-text';
     font-weight: 400;
 }
 
+@font-face {
+    font-family: 'Roboto';
+    src: url('#{$roboto-font-path}/roboto-regular.woff') format('woff'),
+         url('#{$roboto-font-path}/roboto-regular.woff2') format('woff2'),
+         url('#{$roboto-font-path}/roboto-regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
 $white: #ffffff;
 $text-color: #545f7d;
 $primary-color: #213f7d;
@@ -63,6 +72,7 @@ $secondary-color: #39cdcc;
 $primary-font: 'Work Sans', sans-serif;
 $secondary-font: 'Avenir Next', $primary-font, sans-serif;
 $tertiary-font: 'SF Compact Text', $secondary-font, $primary-font, sans-serif;
+$link-font: 'Roboto', $tertiary-font, $secondary-font, $primary-font, sans-serif;
 
 $font-xs: 0.75rem;
 $font-sm: 0.875rem;

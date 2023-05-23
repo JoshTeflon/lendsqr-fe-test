@@ -1,1 +1,5 @@
 export { default as LogoIcon } from './LogoIcon'
+export { default as SearchIcon } from './SearchIcon'
+export { default as MenuIcon } from './MenuIcon'
+export { default as BellIcon } from './BellIcon'
+export { default as CaretDown } from './CaretDown'
