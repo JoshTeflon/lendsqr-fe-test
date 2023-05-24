@@ -1,114 +1,62 @@
-import React, { ReactNode, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import classnames from 'classnames'
-import { Button } from '../../interface'
-
-// interface SubNavItem {
-//   label: string
-//   href: string
-// }
-
-// interface NavItem {
-//   icon: ReactNode | null
-//   label: string
-//   href?: string
-//   subNav?: Array<SubNavItem>
-// }
-
-// const navItems: Array<NavItem> = [
-//   {
-//     icon: <DashboardOutline />,
-//     label: 'frontdesk',
-//     subNav: [
-//       {
-//         label: 'dashboard',
-//         href: ''
-//       },
-//       {
-//         label: 'patient registration',
-//         href: 'patient-registration'
-//       },
-//       {
-//         label: 'appointment',
-//         href: 'appointment'
-//       },
-//       {
-//         label: 'case file',
-//         href: 'case-file'
-//       },
-//     ]
-//   },
-//   {
-//     icon: <ProfileDoc />,
-//     label: 'nursing',
-//     subNav: [
-//       {
-//         label: 'vitals',
-//         href: 'nursing/vitals'
-//       },
-//       {
-//         label: 'treatment',
-//         href: 'nursing/treatment'
-//       }
-//     ]
-//   },
-//   {
-//     icon: <ProfileCard />,
-//     label: 'consultation',
-//     href: 'consultation',
-//     subNav: []
-//   },
-//   {
-//     icon: <Cog />,
-//     label: 'settings',
-//     href: 'settings'
-//   },
-//   {
-//     icon: <ChatSupport />,
-//     label: 'support',
-//     href: 'support'
-//   }
-// ]
+import { getSidenavItems, SidenavItem, SubItem } from '../../../lib/data/getSidenavItems'
+import { formatToLink } from '../../../lib/utils'
+import { Home } from '../../icons'
 
 interface SidenavProps {
     show: boolean
 }
 
 const Sidenav: React.FC<SidenavProps> = ({ show }) => {
-  const [activeNavItem, setActiveNavItem] = useState<string>('')
-
   const location = useLocation()
-
-  const handleNavDropdown = (label: string) => {
-    if (activeNavItem === label) {
-      setActiveNavItem('')
-    } else {
-      setActiveNavItem(label)
-    }
-  }
-
-//   useEffect(() => {
-//     navItems.forEach((navItem: NavItem) => {
-//       if (navItem.href && location.pathname === `/${navItem.href}`) {
-//         setActiveNavItem(navItem.label)
-//       } else if (navItem.subNav?.length !== undefined && navItem.subNav?.length > 0) {
-//         navItem.subNav.forEach((subNavItem: SubNavItem) => {
-//           if (location.pathname === `/${subNavItem.href}`) {
-//             setActiveNavItem(navItem.label)
-//           }
-//         })
-//       }
-//     })
-//   }, [location.pathname])
+  const [activeItem, setActiveItem] = useState<string>(location?.pathname)
 
   return (
-        <nav className={classnames(
-          '',
-          { 'ml-0': show },
-          { '-ml-[100%]': !show }
-          )}
-        >
-          
+        <nav className={classnames({ 'show': show }, { 'hide': !show })}>
+          <div className='sidenav-content'>
+            <Link
+                className={classnames('sidenav-link', { 'active': activeItem === '/' })}
+                to='/'
+                onClick={() => setActiveItem('/')}
+            >
+              <Home />
+              <span>Dashboard</span>
+            </Link>
+            {
+              getSidenavItems()?.map((i: SidenavItem) => {
+                return (
+                  <div className='sidenav-items' key={i.name}>
+                    <h2>{i.name}</h2>
+                    <ul>
+                      {
+                        i.items?.map((j: SubItem) => {
+                          return (
+                            <li key={j.subname}>
+                              <Link
+                                className={classnames('sidenav-link',
+                                  {
+                                    'active': activeItem === formatToLink(`/${i.name}/${j.subname}`),
+                                    'disabled': j.subname !== 'Users'
+                                  }
+                                )}
+                                to={formatToLink(`/${i.name}/${j.subname}`)}
+                                onClick={() => setActiveItem(formatToLink(`/${i.name}/${j.subname}`))}
+                              >
+                                <j.icon />
+                                <span>{j.subname}</span>
+                              </Link>
+                            </li>
+                          )
+                        })
+                      }
+                    </ul>
+                  </div>
+                )
+              })
+            }
+          </div>
         </nav>
     )
 }
