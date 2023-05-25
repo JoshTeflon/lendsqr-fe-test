@@ -1,0 +1,89 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m; 
+
+.users {
+    width: 100%;
+
+    h1 {
+        color: v.$primary-color;
+        font-weight: 500;
+        font-size: v.$font-2xl;
+        line-height: 28px;
+    }
+
+    &-data-wrapper {
+        margin: 2.5rem 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+        gap: 1.625rem;
+    }
+
+    &-data-card {
+        padding: 1.25rem 1.875rem 1.875rem 1.875rem;
+
+        &-icon-wrapper {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 100%;
+            @include m.centerElement;
+        }
+
+        h2 {
+            color: v.$text-color;
+            font-size: v.$font-sm;
+            font-weight: 500;
+            margin: v.$font-sm 0 v.$font-xs 0;
+            line-height: 16px;
+            text-transform: uppercase;
+        }
+
+        span {
+            color: v.$primary-color;
+            font-size: v.$font-2xl;
+            font-weight: 600;
+            line-height: 28px;
+            text-transform: uppercase;
+        }
+    }
+
+    &-data-table {
+        width: 100%;
+        overflow: auto;
+
+        table {
+            width: 100%;
+
+            thead {
+                th {
+                    color: v.$text-color;
+                    font-size: v.$font-xs;
+                    font-weight: 600;
+                    line-height: 14px;
+                    text-transform: uppercase;
+                    text-align: left;
+                    padding: 0 1.2rem 0.875rem 0;
+                    white-space: nowrap;
+
+
+                    span {
+                        margin-right: 0.625rem;
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+
+                    td {
+                        color: v.$text-color;
+                        font-size: v.$font-sm;
+                        line-height: 16px;
+                        padding: 1.4rem 1.2rem 1.4rem 0;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+}

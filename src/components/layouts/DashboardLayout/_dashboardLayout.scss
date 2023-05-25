@@ -1,3 +1,5 @@
+@use '../../../styles/variables' as v;
+
 .dashboard-layout {
     width: 100%;
     height: 100vh;
@@ -7,7 +9,7 @@
     &-wrapper {
         width: 100%;
         display: flex;
-        height: calc(100vh - 6.25rem);
+        height: calc(100vh - v.$header-height);
     }
 
     &-content {

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Dashboard, Users, UserDetails, Login } from './pages';
 import './App.scss';
-import { Dashboard, Users, Login } from './pages';
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/customers/users" element={<Users />} />
+          <Route path="/customers/users/:username" element={<UserDetails />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </Router>

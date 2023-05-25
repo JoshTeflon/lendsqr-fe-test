@@ -1,0 +1,119 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.user-details {
+    .back-to-users {
+        color: v.$text-color;
+        font-size: v.$font-base;
+        font-weight: 400;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        text-decoration: none;
+
+        span {
+            margin-left: 0.75rem;
+        }
+    }
+
+    &-header {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            color: v.$primary-color;
+            font-weight: 500;
+            font-size: v.$font-2xl;
+            line-height: 28px;
+        }
+        
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    &-btns {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+
+        @media screen and (min-width: 425px) {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        @media screen and (min-width: 768px) {
+            margin-top: 0;
+        }
+
+        .btn {
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+            width: 100%;
+            max-width: 10.625rem;
+
+            &.blacklist {
+                color: #e4033b;
+                margin-right: 1rem;
+                margin-bottom: 0.75rem;
+
+                @media screen and (min-width: 425px) {
+                    margin-right: 1.25rem;
+                    margin-bottom: 0;
+                }
+                
+                @media screen and (min-width: 768px) {
+                    margin-right: 1.25rem;
+                }
+            }
+    
+            &.activate {
+                color: #39cdcc;
+            }
+        }
+    }
+
+    &-card-highlight {
+        margin: 2.5rem 0 1.875rem 0;
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+
+            &-icon {
+                color: v.$primary-color;
+                background: rgba(33, 63, 125, 0.16);
+                border-radius: 100%;
+                width: 6.25rem;
+                height: 6.25rem;
+                margin-right: 1.25rem;
+                @include m.centerElement();
+            }
+
+            &-identity {
+                padding: 1.2rem 1.875rem 1.2rem 0;
+            }
+
+            &-tier {
+                padding: 1.2rem 1.875rem;
+                border-left: 1px solid rgb(84, 95, 125, 0.2);
+                border-right: 1px solid rgb(84, 95, 125, 0.2);
+            }
+
+            &-funds {
+                padding: 1.2rem 0 1.2rem 1.875rem;
+            }
+        }
+
+        .user-tabs {
+
+        }
+    }
+
+    &-card-info {
+
+    }
+}

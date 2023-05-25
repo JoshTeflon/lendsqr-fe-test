@@ -3,20 +3,25 @@ export const formatToLink = (str: string): string => {
 };
 
 export const convertToThousands = (number: number): string => {
-    let numberString = number.toString();
+  let numberString = number.toString();
 
-    const numberArray = numberString.split('');
-  
-    numberArray.reverse();
-  
-    for (let i = 3; i < numberArray.length; i += 4) {
-      numberArray.splice(i, 0, ',');
+  const parts = numberString.split('.');
+
+  let integerPart = parts[0];
+  let integerFormatted = '';
+  let index = 0;
+
+  for (let i = integerPart.length - 1; i >= 0; i--) {
+    if (index !== 0 && index % 3 === 0) {
+      integerFormatted = ',' + integerFormatted;
     }
+    integerFormatted = integerPart[i] + integerFormatted;
+    index++;
+  }
 
-    numberArray.reverse();
-    numberString = numberArray.join('');
-  
-    return numberString;
+  numberString = integerFormatted + (parts.length > 1 ? '.' + parts[1] : '.00');
+
+  return numberString;
 };
 
 export const HexToRgba = (hexCode: string, opacity: number): string => {

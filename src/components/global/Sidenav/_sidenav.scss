@@ -4,7 +4,7 @@
 nav {
     width: 20%;
     min-width: 18rem;
-    height: 100%;
+    height: calc(100vh - v.$header-height);
     background: v.$white;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
     padding: 1.5rem 0rem;
