@@ -19,6 +19,7 @@ const Pagination: React.FC<PaginationProps> = ({
     onPageChange,
     onPageSizeChange
 }) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [numPages, setNumPages] = useState(Math.ceil(totalItems / pageSize));
 
     const handleClick = (pageNumber: number) => {
