@@ -30,8 +30,10 @@ const Users: React.FC = () => {
     const [orgName, setOrgName] = useState<string>('')
     const [userName, setUserName] = useState<string>('')
     const [email, setEmail] = useState<string>('')
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [date, setDate] = useState<string>('')
     const [phoneNumber, setPhoneNumber] = useState<string>('')
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [status, setStatus] = useState<string>('')
 
     const tableHeaders = ['organization', 'username', 'email', 'phone number', 'date joined', 'status']
