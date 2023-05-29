@@ -69,7 +69,7 @@ const Users: React.FC = () => {
 
     const { isLoading, refetch } = useQuery(['users'], () => getUsers(orgName, userName, email, phoneNumber), {
         onSuccess: ({ data }) => {
-            console.log('data', data)
+            // console.log('data', data)
             setUsers(data)
             setTotalUsers(data?.length)
             setTotalActiveUsers(data?.filter((i: UserInfoItem)  => !beforeTodayCheck(i?.lastActiveDate))?.length)

@@ -1,10 +1,13 @@
 import Logo from "../Logo"
-import { Button, Input } from "../../interface"
-import { BellIcon, CaretDown, MenuIcon, SearchIcon } from "../../icons"
+import { Button, Input, Popup } from "../../interface"
+import { BellIcon, CaretDown, MenuIcon, SearchIcon, UserCancel } from "../../icons"
 import Avatar from '../../../assets/images/image.png'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useState } from "react"
 
 const DashboardHeader: React.FC<{menuClick: () => void}> = ({ menuClick }) => {
+    const [popupOpen, setPopupOpen] = useState<boolean>(false)
+    const navigate = useNavigate()
 
     return (
         <header className='dashboard-header'>
@@ -43,10 +46,25 @@ const DashboardHeader: React.FC<{menuClick: () => void}> = ({ menuClick }) => {
                         <Button
                             variant='naked'
                             className='header-profile-dropdown'
+                            onClick={() => setPopupOpen(!popupOpen)}
                         >
                             <CaretDown />
                         </Button>
                     </div>
+                    <Popup
+                        isOpen={popupOpen}
+                        onClose={() => setPopupOpen(false)}
+                        className='header-profile-popup'
+                    >
+                        <Button
+                            variant='naked'
+                            className='popup-btn'
+                            style={{ display: 'flex', alignItems: 'center' }}
+                            onClick={() => navigate('/login')}
+                        >
+                            <UserCancel /><span style={{ marginLeft: '0.5rem' }}>Back to login</span>
+                        </Button>
+                    </Popup>
                 </div>
             </div>
         </header>
