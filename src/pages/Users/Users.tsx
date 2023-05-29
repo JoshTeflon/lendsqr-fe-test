@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { DashboardLayout } from '../../components/layouts'
 import { Button, Card, Input, Popup, Select, StatusPill, LoadingDots } from '../../components/interface'
