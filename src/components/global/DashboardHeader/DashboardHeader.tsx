@@ -1,18 +1,25 @@
 import Logo from "../Logo"
 import { Button, Input } from "../../interface"
-import { BellIcon, CaretDown, LogoIcon, MenuIcon, SearchIcon } from "../../icons"
+import { BellIcon, CaretDown, MenuIcon, SearchIcon } from "../../icons"
 import Avatar from '../../../assets/images/image.png'
+import { Link } from "react-router-dom"
 
-const DashboardHeader: React.FC = () => {
+const DashboardHeader: React.FC<{menuClick: () => void}> = ({ menuClick }) => {
 
     return (
         <header className='dashboard-header'>
             <div className='dashboard-header-content'>
                 <div className='dashboard-header-left'>
-                    <Button variant='naked' className='hamburger'>
+                    <Button
+                        variant='naked'
+                        className='hamburger'
+                        onClick={menuClick}
+                    >
                         <MenuIcon />
                     </Button>
-                    <Logo className='header-logo' />
+                    <Link to='/'>  
+                        <Logo className='header-logo' />
+                    </Link>
                     <div className='search-container'>     
                         <Input
                             className='search-container-input'

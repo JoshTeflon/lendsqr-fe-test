@@ -5,7 +5,7 @@ import LoadingDots from '../LoadingDots/LoadingDots'
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
     className?: string
-    variant?: 'primary' | 'outlined' | 'naked' | 'link'
+    variant?: 'primary' | 'outlined' | 'naked' | 'link' | 'pagination'
     type?: 'submit' | 'reset' | 'button'
     loading?: boolean
     disabled?: boolean | any
@@ -15,7 +15,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const Button: React.FC<ButtonProps> = (props) => {
     const { children, className, variant = 'primary', type = 'button', loading, disabled, size = 'base', ...rest } = props
 
-    const buttonStyles = `${variant} ${variant !== 'naked' && variant !== 'link' ? size : ''}`
+    const buttonStyles = `${variant} ${variant !== 'naked' && variant !== 'link' && variant !== 'pagination' ? size : ''}`
 
     return (
         <button

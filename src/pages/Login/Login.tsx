@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { LoginLayout } from '../../components/layouts'
 import { Logo } from '../../components/global'
 import PabloSignIn from '../../assets/images/pablo-sign-in.png'
@@ -6,6 +7,7 @@ import { Button, Input } from '../../components/interface'
 
 const Login: React.FC = () => {
     const [displayPassword, setDisplayPassword] = useState(false)
+    const navigate = useNavigate();
 
     return (
         <LoginLayout>
@@ -55,6 +57,7 @@ const Login: React.FC = () => {
                             <Button
                                 type='submit'
                                 size='lg'
+                                onClick={() => navigate('/customers/users')}
                             >
                                 log in
                             </Button>

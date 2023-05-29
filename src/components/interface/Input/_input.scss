@@ -1,7 +1,7 @@
 @use '../../../styles/variables' as v;
-$-border-color: rgba(84, 95, 125, 0.15);
+$-border-color: rgba(33, 63, 125, 0.2);
 
-label {
+label.input {
     width: 100%;
     display: flex;
     position: relative;

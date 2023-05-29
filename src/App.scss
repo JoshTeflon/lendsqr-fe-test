@@ -2,9 +2,19 @@
 @import '/src/styles/reset';
 
 @import '/src/components/global/DashboardHeader/dashboardHeader';
+@import '/src/components/global/Sidenav/sidenav';
+@import '/src/components/global/Pagination/pagination.scss';
 @import '/src/components/layouts/LoginLayout/loginLayout';
+@import '/src/components/layouts/DashboardLayout/dashboardLayout';
 @import '/src/components/interface/Input/input';
 @import '/src/components/interface/Button/button';
+@import '/src/components/interface/Select/select';
 @import '/src/components/interface/LoadingDots/loadingDots';
+@import '/src/components/interface/Card/card';
+@import '/src/components/interface/StatusPill/statusPill';
+@import '/src/components/interface/TierRating/tierRating';
+@import '/src/components/interface/Popup/popup';
 
 @import '/src/pages/Login/login';
+@import '/src/pages/Users/users';
+@import '/src/pages/UserDetails/userDetails';
