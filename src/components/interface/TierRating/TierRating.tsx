@@ -13,9 +13,9 @@ const TierRating: React.FC<TierStarRatingProps> = ({ totalStars = 3, starredStar
         [...Array(totalStars)].map((_, index) => (
             index < starredStars
             ?
-            <Star className='tier-rating-star' />
+            <Star key={index} className='tier-rating-star' />
             :
-            <StarOutline className='tier-rating-star' />
+            <StarOutline key={index} className='tier-rating-star' />
         ))
       }
     </span>

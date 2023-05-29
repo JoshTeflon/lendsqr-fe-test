@@ -10,13 +10,35 @@ export interface UserDataItem {
 
 export type StatusProps = 'Active' | 'Inactive' | 'Pending' | 'Blacklisted';
 
+interface EducationProps {
+  duration: string;
+  employmentStatus: string;
+  level: string;
+  loanRepayment: string;
+  monthlyIncome: string[];
+  officeEmail: string;
+  sector: string
+}
+
 export interface UserInfoItem {
-  username: string;
-  organisation: string;
+  userName: string;
+  orgName: string;
   email: string;
   phoneNumber: string;
-  date: string;
-  status: StatusProps;
+  createdAt: string;
+  id: number;
+  lastActiveDate: string;
+  education: EducationProps;
+}
+
+export interface UserDetailProps {
+  key: string
+  value: string
+}
+
+export interface UserDetailsItem {
+  header: string
+  details: UserDetailProps[]
 }
 
 export const getUsersData = () => {
@@ -50,73 +72,123 @@ export const getUsersData = () => {
   return usersData;
 };
 
-export const getUsersInfo = () => {
-  const usersInfo: UserInfoItem[] = [
+export const getUserTabs = () => {
+  const userTabs: string[] = ['General Details', 'Documents', 'Bank Details', 'Loans', 'Savings', 'App and System']
+
+  return userTabs;
+}
+
+export const getUserDetails = () => {
+  const userDetails: UserDetailsItem[] = [
     {
-      username: 'Adedeji',
-      organisation: 'Lendsqr',
-      email: 'adedeji@lendsqr.com',
-      phoneNumber: '08078903721',
-      date: '2020-05-15T10:00:00',
-      status: 'Inactive',
+      header: 'Personal Information',
+      details: [
+        {
+          key: 'full name',
+          value: ''
+        },
+        {
+          key: 'phone number',
+          value: ''
+        },
+        {
+          key: 'email address',
+          value: ''
+        },
+        {
+          key: 'bvn',
+          value: ''
+        },
+        {
+          key: 'gender',
+          value: ''
+        },
+        {
+          key: 'marital status',
+          value: ''
+        },
+        {
+          key: 'children',
+          value: ''
+        },
+        {
+          key: 'type of residence',
+          value: ''
+        },
+      ]
     },
     {
-      username: 'Debby Ogana',
-      organisation: 'Irorun',
-      email: 'debby2@irorun.com',
-      phoneNumber: '08160780928',
-      date: '2020-04-30T10:00:00',
-      status: 'Pending',
+      header: 'Education and Employment',
+      details: [
+        {
+          key: 'level of education',
+          value: ''
+        },
+        {
+          key: 'employment status',
+          value: ''
+        },
+        {
+          key: 'sector of employment',
+          value: ''
+        },
+        {
+          key: 'duration of employment',
+          value: ''
+        },
+        {
+          key: 'official email',
+          value: ''
+        },
+        {
+          key: 'monthly income',
+          value: ''
+        },
+        {
+          key: 'loan repayment',
+          value: ''
+        },
+      ]
     },
     {
-      username: 'Grace Effiom',
-      organisation: 'Lendsqr',
-      email: 'grace@lendstar.com',
-      phoneNumber: '07060780922',
-      date: '2020-04-30T10:00:00',
-      status: 'Blacklisted',
+      header: 'Socials',
+      details: [
+        {
+          key: 'twitter',
+          value: ''
+        },
+        {
+          key: 'facebook',
+          value: ''
+        },
+        {
+          key: 'instagram',
+          value: ''
+        },
+      ]
     },
     {
-      username: 'Tosin Dokunmu',
-      organisation: 'Lendsqr',
-      email: 'tosin@lendsqr.com',
-      phoneNumber: '07003309226',
-      date: '2020-04-10T10:00:00',
-      status: 'Pending',
-    },
-    {
-      username: 'Grace Effiom',
-      organisation: 'Lendsqr',
-      email: 'grace@lendstar.com',
-      phoneNumber: '07060780922',
-      date: '2020-04-30T10:00:00',
-      status: 'Active',
-    },
-    {
-      username: 'Tosin Dokunmu',
-      organisation: 'Lendsqr',
-      email: 'tosin@lendsqr.com',
-      phoneNumber: '08060780900',
-      date: '2020-04-10T10:00:00',
-      status: 'Active',
-    },
-    {
-      username: 'Grace Effiom',
-      organisation: 'Lendsqr',
-      email: 'grace@lendstar.com',
-      phoneNumber: '07060780922',
-      date: '2020-04-30T10:00:00',
-      status: 'Blacklisted',
-    },
-    {
-      username: 'Tosin Dokunmu',
-      organisation: 'Lendsqr',
-      email: 'tosin@lendsqr.com',
-      phoneNumber: '08060780900',
-      date: '2020-04-10T10:00:00',
-      status: 'Inactive',
-    },
+      header: 'Guarantor',
+      details: [
+        {
+          key: 'full name',
+          value: ''
+        },
+        {
+          key: 'phone number',
+          value: ''
+        },
+        {
+          key: 'address',
+          value: ''
+        },
+        {
+          key: 'gender',
+          value: ''
+        },
+      ]
+    }
   ]
 
-  return usersInfo;
+  return userDetails;
 }

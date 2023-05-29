@@ -32,7 +32,7 @@ const Input: React.FC<InputProps> = forwardRef((props, ref) => {
   }
 
   return (
-    <label className={classnames(className, border)}>
+    <label className={classnames('input', className, border)}>
         <input
             className={classnames({'icon-input': icon})}
             placeholder={placeholder}

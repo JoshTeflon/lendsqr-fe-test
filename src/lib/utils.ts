@@ -1,27 +1,31 @@
 export const formatToLink = (str: string): string => {
-    return str.toLowerCase().replace(/\s+/g, '-');
+    return str?.toLowerCase()?.replace(/\s+/g, '-');
 };
 
-export const convertToThousands = (number: number): string => {
-  let numberString = number.toString();
+export const convertToThousands = (number: number | undefined): string => {
+  if (number === undefined) {
+    return '';
+  }
 
-  const parts = numberString.split('.');
+  const numberString = number.toString();
+  const [integerPart, decimalPart = ''] = numberString.split('.');
 
-  let integerPart = parts[0];
-  let integerFormatted = '';
+  let formattedNumber = '';
   let index = 0;
 
   for (let i = integerPart.length - 1; i >= 0; i--) {
     if (index !== 0 && index % 3 === 0) {
-      integerFormatted = ',' + integerFormatted;
+      formattedNumber = ',' + formattedNumber;
     }
-    integerFormatted = integerPart[i] + integerFormatted;
+    formattedNumber = integerPart[i] + formattedNumber;
     index++;
   }
 
-  numberString = integerFormatted + (parts.length > 1 ? '.' + parts[1] : '.00');
+  if (decimalPart !== '') {
+    formattedNumber += '.' + decimalPart;
+  }
 
-  return numberString;
+  return formattedNumber;
 };
 
 export const HexToRgba = (hexCode: string, opacity: number): string => {
@@ -42,4 +46,15 @@ export const formatDate = (dateString: string): string => {
   const formattedDate = date.toLocaleString('en-US', options).replace(' at', '');
 
   return formattedDate;
+}
+
+export const beforeTodayCheck = (dateString: string) => {
+  const dateToCheck = new Date(dateString);
+  const today = new Date();
+
+  if (dateToCheck < today) {
+    return true;
+  } else {
+    return false;
+  }
 }
