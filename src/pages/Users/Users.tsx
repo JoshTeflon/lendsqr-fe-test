@@ -81,6 +81,13 @@ const Users: React.FC = () => {
         }
     })
 
+    const resetFilterFields = () => {
+        setOrgName('')
+        setUserName('')
+        setEmail('')
+        setPhoneNumber('')
+    }
+
     const renderUsers = () => {
         const startIndex = (page - 1) * limit;
         const endIndex = startIndex + limit;
@@ -238,10 +245,15 @@ const Users: React.FC = () => {
                                 options={getStatusOptions()}
                                 onChange={e => setStatus(e.target.value)}
                                 placeholder='Select'
+                                disabled
                             />
                         </div>
                         <div className='filter-popup-btns'>
-                            <Button variant='outlined' type='reset'>Reset</Button>
+                            <Button
+                                variant='outlined'
+                                type='reset'
+                                onClick={() => resetFilterFields()}
+                            >Reset</Button>
                             <Button
                                 onClick={() => {
                                         refetch()
